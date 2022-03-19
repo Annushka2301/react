@@ -1,9 +1,14 @@
 const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const NOVE_ENV = process.env.NOVE_ENV;
+const NODE_ENV = process.env.NODE_ENV;
+const IS_DEV = NODE_ENV === 'development';
 
 module.exports = {
-    mode: NOVE_ENV ? NOVE_ENV : 'development',
+    resolve: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+    },
+    mode: NODE_ENV ? NODE_ENV : 'development',
     entry: path.resolve(__dirname, 'src/index.jsx'),
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -14,5 +19,13 @@ module.exports = {
             test: /\.[tj]sx?$/,
             use: ['ts-loader']
         }]
-    }
+    },
+    plugins: [
+        new HTMLWebpackPlugin({ template: path.resolve(__dirname, 'index.html') })
+    ],
+    devServer: {
+        port: 3000,
+        open: true,
+        hot: IS_DEV,
+    },
 };

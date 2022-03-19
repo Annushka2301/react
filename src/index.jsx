@@ -3,5 +3,4 @@ import * as ReactDOM from 'react-dom';
 
 window.addEventListener('load', () => {
     ReactDOM.render(<Header />, document.getElementById('react_root'));
-})
-ReactDOM.render(<Header />, document.getElementById('react_root'));
+});
