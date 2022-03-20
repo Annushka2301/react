@@ -28,9 +28,9 @@ module.exports = {
             options: {
               modules: {
                 mode: 'local',
-                localIndentName: '[name]__[local]--[hash:base64:5]',
+                // localIndentName: '[name]__[local]--[hash:base64:5]',
               },
-              onlyLocals: true,
+              // onlyLocals: true,
             }
           }
         ],
