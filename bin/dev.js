@@ -26,7 +26,6 @@ hmrServer.use(
 );
 
 hmrServer.use(webpackDevMiddleware(clientCompiler, {
-    // publicPath: webpackClientConfig.output.publicPath,
     publicPath: '//localhost:3001/static/',
     serverSideRender: true,
     // noInfo: true,
