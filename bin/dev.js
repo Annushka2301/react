@@ -33,7 +33,7 @@ hmrServer.use(webpackDevMiddleware(clientCompiler, {
     //     ignore: /dist/,
     // },
     writeToDisk: true,
-    stats: 'errors-only'
+    stats: 'errors-only',
 }));
 
 hmrServer.use(webpackHotMiddleware(clientCompiler, {
@@ -47,23 +47,23 @@ hmrServer.listen(3001, () => {
 const compiler = webpack(webpackServerConfig);
 
 compiler.run((err) => {
+  if (err) {
+    console.log('Compilation failed: ', err);
+  }
+
+  compiler.watch({}, (err) => {
     if (err) {
-        console.log('Compilation failed: ', err);
+      console.log('Compilation failed: ', err);
     }
+    console.log('Compilation was successful')
+  });
 
-    compiler.watch({}, (err) => {
-        if (err) {
-            console.log('Compilation failed: ', err);
-        }
-        console.log('Compilation was successful')
-    });
-
-    nodemon({
-        script: path.resolve(__dirname, '../dist/server/server.js'),
-        watch: [
-            path.resolve(__dirname, '../dist/server'),
-            path.resolve(__dirname, '../dist/client'),
-        ]
-    })
+  nodemon({
+    script: path.resolve(__dirname, '../dist/server/server.js'),
+    watch: [
+      path.resolve(__dirname, '../dist/server'),
+      path.resolve(__dirname, '../dist/client'),
+    ]
+  })
 });
 

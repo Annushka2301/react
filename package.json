@@ -1,16 +1,34 @@
 {
-  "name": "project",
+  "name": "react",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "jest.config.js",
+  "bin": {
+    "react": "bin/dev.js"
+  },
   "scripts": {
     "build:dev": "env NODE_ENV=development webpack --config webpack.config.js",
     "build:prod": "env NODE_ENV=production webpack --config webpack.config.js",
     "dev": "env NODE_ENV=development node ./bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Annushka2301/react.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Annushka2301/react/issues"
+  },
+  "homepage": "https://github.com/Annushka2301/react#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
     "@hot-loader/react-dom": "^17.0.2",
     "@types/jest": "^27.4.1",
@@ -31,14 +49,5 @@
     "webpack-dev-server": "^4.7.4",
     "webpack-hot-middleware": "^2.25.1",
     "webpack-node-externals": "^3.0.0"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.3",
-    "g": "^2.0.1",
-    "nodemon": "^2.0.15",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "tsc": "^2.0.4"
   }
 }
