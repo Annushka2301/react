@@ -33,7 +33,7 @@ const initialValue = 0;
 
 interface MyArray<T> {
   [N: number]: T;
-  reduce(fn: (el: T, accumulator: number, value: number) => T, initialValue: T): T
+  reduce(fn: (el: T, accumulator: T, value: number) => T, initialValue: T): T
 }
 
 const task3Result = task3.reduce((accumulator, value) => accumulator + value, initialValue);
@@ -42,7 +42,7 @@ const task3Result = task3.reduce((accumulator, value) => accumulator + value, in
 
 interface IHomeTask {
   data: string;
-  numbericData: number;
+  numericData: number;
   date: Date;
   externalData: {
     basis: number;
@@ -63,7 +63,6 @@ const homeTask: MyPartial<IHomeTask> = {
 //task 5
 
 // Это React Functional Component
-
 function HomeComponent(props: TMyType<IProps>) {
   return (
     <div>
@@ -71,32 +70,27 @@ function HomeComponent(props: TMyType<IProps>) {
     </div>
   )
 }
-// props: IProps;
 interface IProps {
   firstProp: number
 }
-
 type TMyType<T> = {
-  [N in keyof T]: T extends React.Component ? TMyType<T[N]> : T[N];
+  [N in keyof T]: T extends React.FunctionComponent ? TMyType<T[N]> : T[N];
 }
-
-const t = typeof HomeComponent;
+const t: TMyType<typeof HomeComponent> = {};
 
 //task 6
 
 // Среди JSX IntrinsicElements есть Элемент DIV, получить доступ к нему можно так:
-
 type TDivElement = JSX.IntrinsicElements['div'];
 
 // Этот тип описывает все свойства, доступные для HTMLDivElement. Напишите такой тип TGetJSXPropsProp, который извлекает все HTML свойства, доступные для любого jsx элемента.
-
 type TGetJSXPropsProp<T> = {
-  [N in T]: N extends JSX.IntrinsicElements[T] ? N[T] : Error;
+  [N in keyof T]: T[N] extends T ? never : T[N];
 }
 
 // Пример:
-type TDivProps = TGetJSXPropsProp<'div'>
+type TDivProps = TGetJSXPropsProp<TDivElement>
 const props: TDivProps = {
-    some: '1233', // throw error потому что не содержится в атрибутах div
-    className: 'handler' // не выкидывает ошибку так как валидно для div элемента
+  some: '1233', // throw error потому что не содержится в атрибутах div
+  className: 'handler' // не выкидывает ошибку так как валидно для div элемента
 }
