@@ -84,13 +84,15 @@ const t: TMyType<typeof HomeComponent> = {};
 type TDivElement = JSX.IntrinsicElements['div'];
 
 // Этот тип описывает все свойства, доступные для HTMLDivElement. Напишите такой тип TGetJSXPropsProp, который извлекает все HTML свойства, доступные для любого jsx элемента.
+
 type TGetJSXPropsProp<T> = {
   [N in keyof T]: T[N] extends T ? never : T[N];
 }
 
 // Пример:
-type TDivProps = TGetJSXPropsProp<TDivElement>
+type TDivProps = TGetJSXPropsProp<TDivElement>;
+
 const props: TDivProps = {
-  some: '1233', // throw error потому что не содержится в атрибутах div
+  // some: '1233', // throw error потому что не содержится в атрибутах div
   className: 'handler' // не выкидывает ошибку так как валидно для div элемента
 }

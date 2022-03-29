@@ -41,13 +41,14 @@ module.exports = {
           {
             loader:  'css-loader',
             options: {
-              modules: true
-              // {
-              //   mode: 'local',
-              //   localIndentName: '[name]__[local]--[hash:base64:5]',
-              // }
+              modules:
+              {
+                mode: 'local',
+                localIndentName: '[name]__[local]--[hash:base64:5]',
+              }
             }
           },
+          'less-loader',
         ],
       }
     ]

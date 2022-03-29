@@ -26,14 +26,15 @@ module.exports = {
           {
             loader:  'css-loader',
             options: {
-              modules: true
-              // {
-              //   mode: 'local',
-              //   localIndentName: '[name]__[local]--[hash:base64:5]',
-              // },
-              // onlyLocals: true,
-            }
+              modules:
+              {
+                mode: 'local',
+                localIndentName: '[name]__[local]--[hash:base64:5]',
+              },
+              onlyLocals: true,
+            },
           },
+          'less-loader',
         ],
       }
     ]

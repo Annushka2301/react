@@ -1,6 +1,6 @@
 const mistake = [] as Array<number>;
 mistake.push(1);
-mistake.push('1');
+// mistake.push('1');
 
 let bigObject = {
   'data': 'string',
@@ -24,7 +24,7 @@ type TMyBigObject = typeof bigObject;
 
 const typedBigObj: MyReadonly<TMyBigObject> = bigObject;
 
-typedBigObj.compare_same_ref = false;
+// typedBigObj.compare_same_ref = false;
 typedBigObj.diffs[0].value = '12';
 
 type TObjCase = keyof TMyBigObject;
@@ -57,8 +57,8 @@ type MyReadonlyDeep<T> = {
 
 const typedBigObjDeep: MyReadonlyDeep<TMyBigObject> = bigObject;
 
-typedBigObjDeep.compare_same_ref = false;
-typedBigObjDeep.diffs[0].value = '12';
+// typedBigObjDeep.compare_same_ref = false;
+// typedBigObjDeep.diffs[0].value = '12';
 
 type TSomeType = MyReadonlyDeep<TMyBigObject>;
 

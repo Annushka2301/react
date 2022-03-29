@@ -102,7 +102,7 @@ function calculate(method: Methods, left: number, right: number): number {
 
 const sum = calculate(Methods.add, 2, 2);
 
-const ArrowFn: TypeFn = (value) => 2;
+// const ArrowFn: TypeFn = (value) => 2;
 
 type TypeFn = () => number;
 
