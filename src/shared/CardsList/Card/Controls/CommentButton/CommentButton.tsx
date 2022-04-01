@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './commentbutton.css';
+import styles from './commentButton.css';
 
 export function CommentButton() {
   return (

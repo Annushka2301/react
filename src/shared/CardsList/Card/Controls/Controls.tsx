@@ -1,7 +1,7 @@
 import React from 'react';
-import { CommentButton } from './CommentButton';
+import { CommentButton } from './CommentButton/CommentButton';
 import styles from './controls.css';
-import { KarmaCounter } from './KarmaCounter';
+import { KarmaCounter } from './KarmaCounter/KarmaCounter';
 import { SaveButton } from './SaveButton';
 import { ShareButton } from './ShareButton';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './textcontent.css';
+import styles from './textContent.css';
 import { Title } from './Title';
 import { UserLink } from './UserLink';
 
