@@ -1,4 +1,4 @@
-export const indexTemplate = (content) => `
+export const indexTemplate = () => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +9,7 @@ export const indexTemplate = (content) => `
     <script src="/static/client.js" type="application/javascript"></script>
 </head>
 <body>
-    <div id="react_root">${content}</div>
+    <div id="react_root"></div>
 </body>
 </html>
 `;

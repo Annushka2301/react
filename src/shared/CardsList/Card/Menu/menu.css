@@ -29,9 +29,41 @@
 
 .closeButton {
   background-color: var(--greyD9);
+  width: 100%;
   padding: 12px 23px;
   border-radius: 0 0 3px 3px;
+  color: var(--grey66);
+}
+
+.closeButton:hover {
+  background-color: var(--greyC4);
+}
+
+.dropdownItem {
+  padding: 0 23px;
+}
+
+.dropdownButton {
+  display: flex;
   width: 100%;
+  padding: 12px 0;
+  color: var(--grey99);
+}
+
+.dropdownButton:not(last-child) {
+  border-bottom: 1px solid var(--greyEC);
+}
+
+.dropdownButton:hover {
+  color: var(--orange);
+}
+
+.dropdownButton:hover svg path {
+  fill: var(--orange);
+}
+
+.dropdownIcon {
+  margin-right: 6px;
 }
 
 @media all and (min-width: 1024px) {

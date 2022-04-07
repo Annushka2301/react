@@ -9,14 +9,15 @@ import { getValue } from "./FunctionalExample";
 import { MyHooks, useIsMounted } from "./HooksExample";
 import { values } from "../webpack.config";
 import { assignId, generateId, generateRandomString } from "./utils/react/generateRandom";
-import { MyList } from "./GenericList";
+import { GenericList } from "./GenericList";
 import { merge } from "./utils/js/merge";
-import { nanoid } from 'nanoid';
+import { Dropdown } from "./shared/Dropdown";
+import { Card } from "./shared/CardsList/Card";
 
 const LIST = [
-  { value: 'some'},
-  { value: 'other some'},
-  { value: 'some'},
+  { text: 'some'},
+  { text: 'other some'},
+  { text: 'some'},
 ].map(generateId);
 
 function AppComponent() {
@@ -27,8 +28,11 @@ function AppComponent() {
   const [list, setList] = React.useState(LIST);
 
   const handleItemClick = (id: string) => {
-    console.log(id)
     setList(list.filter((item) => item.id !== id))
+  }
+
+  const handleAdd = () => {
+    setList(list.concat(assignId({ text: generateRandomString() })))
   }
 
   return (
@@ -39,8 +43,20 @@ function AppComponent() {
         {/* <button onClick={() => setIsVisible(!isVisible)}>Change me!</button> */}
         {/* <input type="text" onChange={getValue(setTitle)} />
         {isVisible && <MyHooks title={title} id="11"/>} */}
-        <MyList list={LIST.map(merge({ onClick: handleItemClick }))} />
+        {/* <button onClick={handleAdd}>Add element</button>
+        <GenericList list={list.map(merge({ onClick: handleItemClick }))} /> */}
         {/* <MyList list={LIST} onClick={console.log} /> */}
+      {/* <div style={{ padding: 200 }}>
+        <br/>
+        <Dropdown
+          // onClose={() => console.log('closed')}
+          // onOpen={() => console.log('opened')}
+          // isOpen={false}
+          button={<button> Test </button>}
+        >
+          <Card/>
+        </Dropdown>
+      </div> */}
       </Content>
     </Layout>
   );
