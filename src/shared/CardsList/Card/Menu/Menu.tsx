@@ -1,9 +1,12 @@
 import React from 'react';
 import { merge } from '../../../../utils/js/merge';
 import { assignId, generateId } from '../../../../utils/react/generateRandom';
+import { MenuIcon } from '../../../Icons';
+import { EColors, Text } from '../../../Text';
 import { Dropdown } from './Dropdown';
+import { MenuListItem } from './MenuListItem';
 import styles from './menu.css';
-import { MenuList } from './menuList';
+import { MenuList } from './MenuList';
 
 
 const LIST = [
@@ -35,7 +38,6 @@ const LIST = [
 ].map(generateId)
 
 export function Menu() {
-
   return (
     <div className={styles.menu}>
       <Dropdown
@@ -56,4 +58,24 @@ export function Menu() {
       </Dropdown>
     </div>
   );
+
+  // return (
+  //   <div className={styles.menu}>
+  //     <Dropdown
+  //     button={<button className={styles.menuButton}>
+  //       <MenuIcon />
+  //     </button>}
+  //     >
+  //       <div className={styles.dropdown}>
+  //         <MenuListItem/>
+  //         <button className={styles.closeButton}>
+  //           <Text mobileSize={12} size={14} color={EColors.gray66}>
+  //             Закрыть
+  //           </Text>
+  //         </button>
+  //       </div>
+  //     </Dropdown>
+  //   </div>
+  // );
+
 }

@@ -28,15 +28,14 @@
 }
 
 .closeButton {
-  background-color: var(--greyD9);
-  width: 100%;
+  background-color: var(--grayD9);
   padding: 12px 23px;
   border-radius: 0 0 3px 3px;
-  color: var(--grey66);
+  width: 100%;
 }
 
 .closeButton:hover {
-  background-color: var(--greyC4);
+  background-color: var(--grayC4);
 }
 
 .dropdownItem {
@@ -47,11 +46,11 @@
   display: flex;
   width: 100%;
   padding: 12px 0;
-  color: var(--grey99);
+  color: var(--gray99);
 }
 
 .dropdownButton:not(last-child) {
-  border-bottom: 1px solid var(--greyEC);
+  border-bottom: 1px solid var(--grayEC);
 }
 
 .dropdownButton:hover {
