@@ -8,7 +8,7 @@ interface IItem {
   className?: string;
   As?: 'a' | 'li' | 'button' | 'div';
   href?: string;
-  icon?: HTMLElement;
+  icon?: JSX.Element;
 }
 
 interface IGenericListProps {
