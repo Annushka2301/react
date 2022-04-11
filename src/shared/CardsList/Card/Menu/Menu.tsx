@@ -41,45 +41,45 @@ export function Menu() {
 
   const [list, setList] = React.useState(LIST);
 
-  return (
-    <div className={styles.menu}>
-      <Dropdown
-      button={<button className={styles.menuButton}>
-        <svg width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="2.5" cy="2.5" r="2.5" fill="#D9D9D9"/>
-          <circle cx="2.5" cy="10" r="2.5" fill="#D9D9D9"/>
-          <circle cx="2.5" cy="17.5" r="2.5" fill="#D9D9D9"/>
-        </svg>
-      </button>}
-      >
-        {/* .map(merge({ onClick: console.log })) */}
-        <ul className={styles.dropdown}>
-          <MenuList list={list.map(merge({ onClick: console.log }))}/>
-          <button className={styles.closeButton}>
-            Закрыть
-          </button>
-        </ul>
-      </Dropdown>
-    </div>
-  );
-
   // return (
   //   <div className={styles.menu}>
   //     <Dropdown
   //     button={<button className={styles.menuButton}>
-  //       <MenuIcon />
+  //       <svg width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  //         <circle cx="2.5" cy="2.5" r="2.5" fill="#D9D9D9"/>
+  //         <circle cx="2.5" cy="10" r="2.5" fill="#D9D9D9"/>
+  //         <circle cx="2.5" cy="17.5" r="2.5" fill="#D9D9D9"/>
+  //       </svg>
   //     </button>}
   //     >
-  //       <div className={styles.dropdown}>
-  //         <MenuListItem/>
+  //       {/* .map(merge({ onClick: console.log })) */}
+  //       <ul className={styles.dropdown}>
+  //         <MenuList list={list.map(merge({ onClick: console.log }))}/>
   //         <button className={styles.closeButton}>
-  //           <Text mobileSize={12} size={14} color={EColors.gray66}>
-  //             Закрыть
-  //           </Text>
+  //           Закрыть
   //         </button>
-  //       </div>
+  //       </ul>
   //     </Dropdown>
   //   </div>
   // );
+
+  return (
+    <div className={styles.menu}>
+      <Dropdown
+      button={<button className={styles.menuButton}>
+        <MenuIcon />
+      </button>}
+      >
+        <div className={styles.dropdown}>
+          <MenuListItem postId='123'/>
+          <button className={[styles.closeButton, styles.hide].join(' ')}>
+            <Text mobileSize={12} size={14} color={EColors.gray66}>
+              Закрыть
+            </Text>
+          </button>
+        </div>
+      </Dropdown>
+    </div>
+  );
 
 }

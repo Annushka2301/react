@@ -65,6 +65,10 @@
   margin-right: 6px;
 }
 
+.hide {
+  display: flex;
+}
+
 @media all and (min-width: 1024px) {
   .menu {
     position: relative;
@@ -86,5 +90,8 @@
 @media all and (min-width: 1540px) {
   .menuButton:hover {
     background-color: rgba(51, 51, 51, 0.1);
+  }
+  .hide {
+    display: none;
   }
 }
