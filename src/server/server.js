@@ -5,8 +5,11 @@ import { App } from '../App';
 import { Header } from '../shared/Header';
 import { indexTemplate } from './indexTemplate';
 import axios  from 'axios';
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors())
 
 app.use('/static', express.static('./dist/client'));
 
@@ -41,8 +44,9 @@ app.get('/auth', (req, res) => {
     }
   )
     .then(({ data }) => {
+      console.log(data)
       res.send(
-        indexTemplate(ReactDOMServer.renderToString(App()), data['access_token'])
+        indexTemplate(data['access_token'])
       )
     })
     .catch(console.log)
@@ -50,13 +54,6 @@ app.get('/auth', (req, res) => {
     indexTemplate(ReactDOMServer.renderToString(App())),
   )
 })
-
-app.get('/auth', (req, res) => {
-  // req.query.code
-  res.send(
-    indexTemplate(ReactDOMServer.renderToString(App()))
-  )
-});
 
 app.listen(3000, () => {
   console.log('Server started on http:localhost:3000')

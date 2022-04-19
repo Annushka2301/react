@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './main.global.css'
 import { hot } from 'react-hot-loader/root'
 import { Layout } from "./shared/Layout";
@@ -13,31 +13,35 @@ import { GenericList } from "./GenericList";
 import { merge } from "./utils/js/merge";
 import { Dropdown } from "./shared/Dropdown";
 import { Card } from "./shared/CardsList/Card";
+import { useToken } from "./hooks/useToken";
 
-const LIST = [
-  { text: 'some'},
-  { text: 'other some'},
-  { text: 'some'},
-].map(generateId);
+// const LIST = [
+//   { text: 'some'},
+//   { text: 'other some'},
+//   { text: 'some'},
+// ].map(generateId);
 
 function AppComponent() {
+
+  const [token] = useToken()
+
   // const [isVisible, setIsVisible] = React.useState(false);
-  const [title, setTitle] = React.useState('');
-  const [isVisible] = useIsMounted();
+  // const [title, setTitle] = React.useState('');
+  // const [isVisible] = useIsMounted();
 
-  const [list, setList] = React.useState(LIST);
+  // const [list, setList] = React.useState(LIST);
 
-  const handleItemClick = (id: string) => {
-    setList(list.filter((item) => item.id !== id))
-  }
+  // const handleItemClick = (id: string) => {
+  //   setList(list.filter((item) => item.id !== id))
+  // }
 
-  const handleAdd = () => {
-    setList(list.concat(assignId({ text: generateRandomString() })))
-  }
+  // const handleAdd = () => {
+  //   setList(list.concat(assignId({ text: generateRandomString() })))
+  // }
 
   return (
     <Layout>
-      <Header />
+      <Header token={token}/>
       <Content>
         <CardsList />
         {/* <button onClick={() => setIsVisible(!isVisible)}>Change me!</button> */}
