@@ -16,7 +16,7 @@ export function SearchBlock({ token }: ISearchBlockProps) {
   const [data, setData] = useState<IUserData>({});
 
   useEffect(() => {
-    axios.get('http://oauth.reddit.com/api/v1/me', {
+    axios.get('https://oauth.reddit.com/api/v1/me', {
       headers: { Authorization: `bearer ${token}` }
     })
       .then((resp) => {

@@ -22,6 +22,8 @@ import { useToken } from "./hooks/useToken";
 // ].map(generateId);
 
 function AppComponent() {
+  const url = new URL(window.location.href);
+  console.log(url.searchParams.get('token'))
 
   const [token] = useToken()
 

@@ -44,7 +44,6 @@ app.get('/auth', (req, res) => {
     }
   )
     .then(({ data }) => {
-      console.log(data)
       res.send(
         indexTemplate(data['access_token'])
       )

@@ -8,11 +8,10 @@ export const indexTemplate = (token) => `
     <title>Reddit</title>
     <script src="/static/client.js" type="application/javascript"></script>
     <script>
-      console.log(${token})
-      window.__token__ = '${token}'
+    window.__token__ = '${token}'
     </script>
-</head>
-<body>
+    </head>
+    <body>
     <div id="react_root"></div>
 </body>
 </html>
