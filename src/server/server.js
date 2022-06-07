@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   );
 });
 
-app.get ('/', (req, res) => {
+app.get ('/auth', (req, res) => {
   const template = indexTemplate();
   const reactTemplate = ReactDOMServer.renderToString(<App />);
 
